@@ -1,4 +1,4 @@
-**Installations**
+# Installations
 npm init -y  --> create a default package.json
 
 npm i webpack webpack-cli --save-dev  -->  set up webpack
@@ -25,7 +25,7 @@ npm i -D @babel/core @babel/preset-env babel-loader
 
 create `.babelrc` file
 
-**Plugins**
+# Plugins
 npm i html-webpack-plugin --save-dev  -->  html plugin
 
 Install the plugin via yarn or npm
@@ -35,7 +35,7 @@ Declare a new instance of the plugin in the plugins list
 Require the plugin from the node modules directory
 
 
-**Modes (Development and production)**
+# Modes (Development and production)
 mode: "production",  -->config file
 
 mode: 'development',
@@ -47,7 +47,7 @@ create `webpack.dev.js` and `webpack.prod.js` files
 "build-prod": "webpack --config webpack.prod.js"
 
 
-**Install Webpack Dev Server**
+# Install Webpack Dev Server**
 npm i webpack-dev-server --save-dev
 
 "build-dev": "webpack --config webpack.dev.js --watch --info-verbosity verbose"
@@ -60,7 +60,7 @@ Add a require statement to the top of the webpack config file:
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
-**SASS**
+# SASS
 npm i -D style-loader node-sass css-loader sass-loader
 
 {
@@ -68,13 +68,13 @@ npm i -D style-loader node-sass css-loader sass-loader
     use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 }
 
-**Development**
+# Development
 entry: './src/client/index.js',
 mode: 'development',
 devtool: 'source-map',
 stats: 'verbose',
 
-**Production**
+# Production
 create a cloud called `Client`
 output:{
   libraryTarget: "var",
@@ -91,7 +91,7 @@ export {
 and then all functions will be written like `Client.handleSubmit(event)`
 
 
-**Minify CSS**
+# Minify CSS
 npm i mini-css-extract-plugin --save-dev
 const MiniCssExtractPlugin=require("mini-css-extract-plugin")
 new MiniCssExtractPlugin({filename:"[name].css"})
@@ -107,19 +107,19 @@ optimization: {
 },
 
 
-**Service Workers**
+# Service Workers
 npm install workbox-webpack-plugin --save-dev
 
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 new WorkboxPlugin.GenerateSW()
 
-<script>
- // Check that service workers are supported
- if ('serviceWorker' in navigator) {
-     // Use the window load event to keep the page load performant
-     window.addEventListener('load', () => {
-         navigator.serviceWorker.register('/service-worker.js');
-     });
- }
-</script>
+> <script>
+> // Check that service workers are supported
+> if ('serviceWorker' in navigator) {
+>    // Use the window load event to keep the page load performant
+>     window.addEventListener('load', () => {
+>         navigator.serviceWorker.register('/service-worker.js');
+>     });
+> }
+> </script>
